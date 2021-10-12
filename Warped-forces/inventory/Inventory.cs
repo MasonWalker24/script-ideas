@@ -11,23 +11,24 @@ public class InvSlot
 }
 public class Item
 {
-  public Item(string name, GameObject obj)
+  public Item(string name, GameObject obj, int size)
   {
     String ItemName = name;
     GameObject ShownObj = obj;
+    int maxStackSize = size;
   }
 }
 public GameObject testItem;
 private void start()
 {
-  Item test = new Item("test item", testItem);
+  Item test = new Item("test item", testItem, 2);
 }
 void addItemToInv(Item itemToStore)
 {
   bool finished = false;
   for(slot of Slots)
   {
-    if(slot.storedItem == null && finished == false)
+    if((slot.storedItem == null && finished == false) || ())
     {
       slot.storedItem = itemToStore
       finished = true;
