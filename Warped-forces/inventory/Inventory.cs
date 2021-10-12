@@ -1,4 +1,16 @@
-public class Inventory
+public class Inventory : MonoBehaviour
 {
-Item[] Slots = new Item[20];
+  InvSlot[] Slots = new InvSlot[23];
 }
+public class InvSlot
+{
+  public InvSlot(Item storedItem)
+  {
+    Item storedItem = storedItem;
+  }
+}
+void addItemToInv()
+{
+  for(slot of Slots)
+  {
+    
