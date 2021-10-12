@@ -12,10 +12,11 @@ public class InvSlot
 }
 public class Item
 {
-  public Item(string name, GameObject obj, int size, string itemId)
+  public Item(string name, GameObject image, GameObject HeldItem, int size, string itemId)
   {
     String ItemName = name;
-    GameObject ShownObj = obj;
+    GameObject objImage = image;
+    GameObject held = HeldItem;
     int maxStackSize = size;
     string itemId = itemId;
   }
