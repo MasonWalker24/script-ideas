@@ -1,6 +1,14 @@
 public class Inventory : MonoBehaviour
 {
-  InvSlot[] Slots = new InvSlot[23];
+  InvSlot[] Slots;
+  GameObject[] InvSlots;
+  public GameObject testItem;
+  private void start()
+  {
+    Slots = new InvSlot[23];
+    Item test = new Item("test item", testItem, 2);
+    InvSlots = new GameObject[23];
+  }
 }
 public class InvSlot
 {
@@ -20,11 +28,6 @@ public class Item
     int maxStackSize = size;
     string itemId = itemId;
   }
-}
-public GameObject testItem;
-private void start()
-{
-  Item test = new Item("test item", testItem, 2);
 }
 void addItemToInv(Item itemToStore)
 {
