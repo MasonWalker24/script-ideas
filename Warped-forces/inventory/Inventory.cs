@@ -40,7 +40,10 @@ void addItemToInv(Item itemToStore)
       finished = true;
       image = Instantiate(itemToStore.objImage, Quaternion.identity);
       image.transform.parent = slot;
-    } else if(slot.storedItem.itemId == itemToStore.itemId && slot.currentStackSize < itemToStore.maxStackSize)
+      image.transform.position.x = 0;
+      image.transform.position.y = 0;
+      slot.currentStackSize = 1;
+    } else if(slot.storedItem.itemId == itemToStore.itemId && slot.currentStackSize < itemToStore.maxStackSize && finished == false)
     {
       slot.currentStackSize += 1;
     }
