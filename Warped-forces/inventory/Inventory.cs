@@ -49,7 +49,7 @@ void addItemToInv(Item itemToStore)
     }
   }
 }
-public void awake()
+public void moveItem()
 {
-  addItemToInv(test);
+  GameObject
 }
