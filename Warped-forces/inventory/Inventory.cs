@@ -22,7 +22,7 @@ public class Item
 {
   public Item(string name, GameObject image, GameObject HeldItem, int size, string itemId)
   {
-    String ItemName = name;
+    string ItemName = name;
     GameObject objImage = image;
     GameObject held = HeldItem;
     int maxStackSize = size;
@@ -38,6 +38,8 @@ void addItemToInv(Item itemToStore)
     {
       slot.storedItem = itemToStore
       finished = true;
+      image = Instantiate(itemToStore.objImage, Quaternion.identity);
+      image.transform.parent = slot;
     } else if(slot.storedItem.itemId == itemToStore.itemId && slot.currentStackSize < itemToStore.maxStackSize)
     {
       slot.currentStackSize += 1;
