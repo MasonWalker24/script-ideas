@@ -10,25 +10,25 @@ public class Inventory : MonoBehaviour
     InvSlots = new GameObject[23];
   }
   void addItemToInv(Item itemToStore)
-{
-  bool finished = false;
-  foreach(InvSlot slot in Slots)
   {
-    if(slot.storedItem == null && finished == false)
+    bool finished = false;
+    foreach(InvSlot slot in Slots)
     {
-      slot.storedItem = itemToStore
-      finished = true;
-      image = Instantiate(itemToStore.objImage, Quaternion.identity);
-      image.transform.parent = slot;
-      image.transform.position.x = 0;
-      image.transform.position.y = 0;
-      slot.currentStackSize = 1;
-    } else if(slot.storedItem.itemId == itemToStore.itemId && slot.currentStackSize < itemToStore.maxStackSize && finished == false)
-    {
-      slot.currentStackSize += 1;
+      if(slot.storedItem == null && finished == false)
+      {
+        slot.storedItem = itemToStore
+        finished = true;
+        image = Instantiate(itemToStore.objImage, Quaternion.identity);
+        image.transform.parent = slot;
+        image.transform.position.x = 0;
+        image.transform.position.y = 0;
+        slot.currentStackSize = 1;
+      } else if(slot.storedItem.itemId == itemToStore.itemId && slot.currentStackSize < itemToStore.maxStackSize && finished == false)
+        {
+          slot.currentStackSize += 1;
+        }
     }
   }
-}
 }
 public class InvSlot
 {
