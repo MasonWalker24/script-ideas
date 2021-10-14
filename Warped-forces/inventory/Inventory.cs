@@ -1,32 +1,36 @@
 public class Inventory : MonoBehaviour
 {
-  InvSlot[] Slots;
+  InvSlot Slots = new InvSlot(null)[23];
   GameObject[] InvSlots;
   public GameObject testItem;
-  private void start()
+  void start()
   {
-    Slots = new InvSlot[23];
     Item test = new Item("test item", testItem, 2);
     InvSlots = new GameObject[23];
   }
 }
 public class InvSlot
 {
-  public InvSlot(Item storedItem)
+  public InvSlot(Item storeditem)
   {
-    Item storedItem = storedItem;
+    Item storedItem = storeditem;
     int currentStackSize;
   }
 }
 public class Item
 {
-  public Item(string name, GameObject image, GameObject HeldItem, int size, string itemId)
+    string ItemName;
+    GameObject objImage;
+    GameObject held;
+    int maxStackSize;
+    string itemId;
+  public Item(string name, GameObject image, GameObject HeldItem, int size, string itemid)
   {
-    string ItemName = name;
-    GameObject objImage = image;
-    GameObject held = HeldItem;
-    int maxStackSize = size;
-    string itemId = itemId;
+    ItemName = name;
+    objImage = image;
+    held = HeldItem;
+    maxStackSize = size;
+    itemId = itemid;
   }
 }
 void addItemToInv(Item itemToStore)
