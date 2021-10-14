@@ -3,9 +3,10 @@ public class Inventory : MonoBehaviour
   InvSlot Slots = new InvSlot(null)[23];
   GameObject[] InvSlots;
   public GameObject testItem;
+  Iten test;
   void start()
   {
-    Item test = new Item("test item", testItem, 2);
+    test = new Item("test item", testItem, 2);
     InvSlots = new GameObject[23];
   }
   void addItemToInv(Item itemToStore)
