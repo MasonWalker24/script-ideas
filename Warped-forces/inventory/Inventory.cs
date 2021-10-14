@@ -1,9 +1,9 @@
 public class Inventory : MonoBehaviour
 {
-  InvSlot Slots = new InvSlot(null)[23];
+  public InvSlot Slots = new InvSlot(null)[23];
   GameObject[] InvSlots;
   public GameObject testItem;
-  Iten test;
+  public Item test;
   void start()
   {
     test = new Item("test item", testItem, 2);
