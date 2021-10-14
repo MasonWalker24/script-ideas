@@ -12,7 +12,7 @@ public class Inventory : MonoBehaviour
   void addItemToInv(Item itemToStore)
 {
   bool finished = false;
-  for(slot of Slots)
+  foreach(InvSlot slot in Slots)
   {
     if(slot.storedItem == null && finished == false)
     {
