@@ -29,15 +29,16 @@ public class Inventory : MonoBehaviour
             if (slot.storedItem == null && finished == false)
             {
                 slot.storedItem = itemToStore;
-                finished = true;
                 image = Instantiate(itemToStore.objImage, new Vector3(0, 0, 0), Quaternion.identity);
                 image.transform.parent = InvSlots[0].transform;
                 image.transform.position = new Vector3(0, 0, 0);
                 slot.currentStackSize = 1;
+                finished = true;
             }
             else if (slot.storedItem.itemId == itemToStore.itemId && slot.currentStackSize < itemToStore.maxStackSize && finished == false)
             {
                 slot.currentStackSize += 1;
+                finished = true;
             }
             i++;
         }
