@@ -6,6 +6,10 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     public InvSlot[] Slots = new InvSlot[23];
+    foreach(InvSlot slot in Slots)
+    {
+        slot.storedItem = null;
+    }
     public GameObject[] InvSlots;
     public GameObject testItem;
     public Item test;
