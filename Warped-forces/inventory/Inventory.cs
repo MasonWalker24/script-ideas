@@ -1,61 +1,66 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+
 public class Inventory : MonoBehaviour
 {
-  public InvSlot Slots = new InvSlot(null)[23];
-  GameObject[] InvSlots;
-  public GameObject testItem;
-  public Item test;
-  void start()
-  {
-    test = new Item("test item", testItem, 2);
-    InvSlots = new GameObject[23];
-  }
-  void addItemToInv(Item itemToStore)
-  {
-    bool finished = false;
-    foreach(InvSlot slot in Slots)
+    public InvSlot[] Slots = new InvSlot[23];
+    public GameObject[] InvSlots;
+    public GameObject testItem;
+    public Item test;
+    public void Start()
     {
-      if(slot.storedItem == null && finished == false)
-      {
-        slot.storedItem = itemToStore
-        finished = true;
-        image = Instantiate(itemToStore.objImage, Quaternion.identity);
-        image.transform.parent = slot;
-        image.transform.position.x = 0;
-        image.transform.position.y = 0;
-        slot.currentStackSize = 1;
-      } else if(slot.storedItem.itemId == itemToStore.itemId && slot.currentStackSize < itemToStore.maxStackSize && finished == false)
+        test = new Item("test item", testItem, testItem, 2, "test item");
+        addItemToInv(test);
+
+    }
+    void addItemToInv(Item itemToStore)
+    {
+        GameObject image;
+        bool finished = false;
+        int i = 0;
+        foreach (InvSlot slot in Slots)
         {
-          slot.currentStackSize += 1;
+            if (slot.storedItem == null && finished == false)
+            {
+                slot.storedItem = itemToStore;
+                finished = true;
+                image = Instantiate(itemToStore.objImage, new Vector3(0, 0, 0), Quaternion.identity);
+                image.transform.parent = InvSlots[0].transform;
+                image.transform.position = new Vector3(0, 0, 0);
+                slot.currentStackSize = 1;
+            }
+            else if (slot.storedItem.itemId == itemToStore.itemId && slot.currentStackSize < itemToStore.maxStackSize && finished == false)
+            {
+                slot.currentStackSize += 1;
+            }
+            i++;
         }
     }
-  }
 }
 public class InvSlot
 {
-  public InvSlot(Item storeditem)
-  {
-    Item storedItem = storeditem;
-    int currentStackSize;
-  }
+    public int currentStackSize;
+    public Item storedItem;
+    public InvSlot(Item storeditem)
+    {
+        storedItem = storeditem;
+    }
 }
 public class Item
 {
-    string ItemName;
-    GameObject objImage;
-    GameObject held;
-    int maxStackSize;
-    string itemId;
-  public Item(string name, GameObject image, GameObject HeldItem, int size, string itemid)
-  {
-    ItemName = name;
-    objImage = image;
-    held = HeldItem;
-    maxStackSize = size;
-    itemId = itemid;
-  }
-}
-
-public void moveItem()
-{
-  GameObject
+    public string ItemName;
+    public GameObject objImage;
+    public GameObject held;
+    public int maxStackSize;
+    public string itemId;
+    public Item(string name, GameObject image, GameObject HeldItem, int size, string itemid)
+    {
+        ItemName = name;
+        objImage = image;
+        held = HeldItem;
+        maxStackSize = size;
+        itemId = itemid;
+    }
 }
